@@ -15,7 +15,8 @@ puts ""
 puts command_output
 
 puts "Sending email to recipients: #{config['recipients']} !"
-mail = IOMailer::Mailer.mailer(config['recipients'], config['from_address'], config['subject'], command_output)
+binding.pry
+mail = IOMailer::NotificationMailer.notify(config['recipients'], config['from_address'], config['subject'], command_output)
 binding.pry
 
 mail.deliver

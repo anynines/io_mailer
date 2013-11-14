@@ -23,6 +23,6 @@ class IOMailer::Configuration
     
     ::ActionMailer::Base.smtp_settings = @config['smtp_settings'] if ActionMailer::Base.delivery_method == :smtp
     
-    ::ActionMailer::Base.view_paths = File.expand_path('../../../views', __FILE__) 
+    ::ActionMailer::Base.view_paths = File.expand_path('../../../views/mailers', __FILE__)
   end
 end

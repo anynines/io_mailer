@@ -3,7 +3,7 @@ require 'action_mailer'
 require 'yaml'
 
 module IOMailer
-  autoload :Mailer, File.expand_path('../io_mailer/mailer', __FILE__)
+  autoload :NotificationMailer, File.expand_path('../io_mailer/notification_mailer', __FILE__)
   autoload :Configuration, File.expand_path('../io_mailer/configuration', __FILE__)
   
   @@config = nil

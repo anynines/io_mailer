@@ -1,12 +1,12 @@
-class IOMailer::Mailer < ActionMailer::Base
+class IOMailer::NotificationMailer < ActionMailer::Base
   
-  def mailer(recipients, from_address, subject, text)
+  def notify(recipients, from_address, subject, text)
     @text = text
     
     mail( :to => recipients,
           :from => from_address,
           :subject => subject) do |format|
-      format.html
+      format.html { render }
     end
   end
   
