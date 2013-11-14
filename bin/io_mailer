@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/io_mailer'
+
+raise "Insufficient arguments for io_mailer. Please specify a script or a command to run" if ARGV.size < 1
+puts "Running io_mailer with arguments=#{ARGV}"
+
+command = ARGV[0]
+command_output = `#{command}`
+
+config = IOMailer.config.config
+
+puts "The command/script produced the following output:"
+puts ""
+puts command_output
+
+puts "Sending email to recipients: #{config['recipients']} !"
+mail = IOMailer::Mailer.mailer(config['recipients'], config['from_address'], config['subject'], command_output)
+binding.pry
+
+mail.deliver
+puts "Sent email!"
