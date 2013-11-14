@@ -12,4 +12,8 @@ module IOMailer
     @@config = IOMailer::Configuration.new(File.expand_path('config/io_mailer.yml'))  if @@config.nil?
     return @@config
   end
+  
+  def self.base_directory
+    File.expand_path("../", File.dirname(__FILE__))
+  end
 end
