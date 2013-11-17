@@ -1,7 +1,7 @@
 class IOMailer::NotificationMailer < ActionMailer::Base
   
-  def notify(recipients, from_address, subject, text)
-    @text = text
+  def notify(recipients, from_address, subject, payload)
+    @payload = payload
     
     mail( :to => recipients,
           :from => from_address,

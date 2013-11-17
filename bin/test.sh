@@ -1,3 +1,4 @@
 #!/bin/sh
 
-echo "Hola mondo!"
+cd ~/rubydev/intern/order_management
+bundle exec rake

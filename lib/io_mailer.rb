@@ -5,6 +5,7 @@ require 'yaml'
 module IOMailer
   autoload :NotificationMailer, File.expand_path('../io_mailer/notification_mailer', __FILE__)
   autoload :Configuration, File.expand_path('../io_mailer/configuration', __FILE__)
+  autoload :InputConverter, File.expand_path('../io_mailer/input_converter', __FILE__)
   
   @@config = nil
   

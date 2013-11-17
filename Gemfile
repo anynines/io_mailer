@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'actionmailer'
 gem 'rake'
+gem 'whenever'
 
 group :test, :development do
   gem 'pry'

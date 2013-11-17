@@ -5,10 +5,11 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-	<h1>IOMailer Message delivery</h1></br>
+	<h1>IOMailer Message delivery for command: <%= @payload[:command] %></h1></br>
     <p>
-    	<%= @text %>
-
+    	<% @payload[:lines].each do |l| %>
+			<%= l %> </br>
+		<% end %>
     </p>
   </body>
 </html>

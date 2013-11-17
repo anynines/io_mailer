@@ -35,7 +35,6 @@ class IOMailer::Configuration
   end
   
   def configure_letter_opener
-    binding.pry
     require "letter_opener"
     
     ActionMailer::Base.raise_delivery_errors = true

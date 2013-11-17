@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
-
+require 'open3'
 require_relative '../lib/io_mailer'
 
 raise "Insufficient arguments for io_mailer. Please specify a script or a command to run" if ARGV.size < 1
 puts "Running io_mailer with arguments=#{ARGV}"
 
 command = ARGV[0]
-command_output = `#{command}`
+command_output = []
+
+IO.popen(command).each do |line|
+  command_output << line.chomp
+end
 
 config = IOMailer.config.config
 
@@ -14,10 +18,14 @@ puts "The command/script produced the following output:"
 puts ""
 puts command_output
 
+payload = { :command => command }
+payload[:lines] = command_output
+
 puts "Sending email to recipients: #{config['recipients']} !"
-binding.pry
-mail = IOMailer::NotificationMailer.notify(config['recipients'], config['from_address'], config['subject'], command_output)
-binding.pry
+mail = IOMailer::NotificationMailer.notify(config['recipients'], config['from_address'], config['subject'], payload)
+
+puts "Sending email with body:"
+puts mail.body
 
 mail.deliver
 puts "Sent email!"
