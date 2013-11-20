@@ -4,4 +4,4 @@ This simple script executes a command provided as command line argument and send
 
 # Usage
 
-* Script execution: ./bin/io_mailer <the script file location or command to execute> (e.g. ./bin/io_mailer ls)
+* Script execution: bundle exec bin/io_mailer <the script file location or command to execute> (e.g. bundle exec bin/io_mailer ls)

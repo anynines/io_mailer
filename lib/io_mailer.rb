@@ -1,3 +1,4 @@
+require 'io_mailer/version'
 require 'pry'
 require 'action_mailer'
 require 'yaml'
