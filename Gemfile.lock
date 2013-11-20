@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     io_mailer (0.0.2)
-      actionmailer
+      actionmailer (~> 4.0.0)
       whenever
 
 GEM
