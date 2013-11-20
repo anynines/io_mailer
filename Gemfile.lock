@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    io_mailer (0.0.2)
+    io_mailer (0.0.3)
       actionmailer (~> 4.0.0)
       whenever
 
